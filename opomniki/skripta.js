@@ -1,6 +1,18 @@
 window.addEventListener('load', function() {
 	//stran nalozena
-		
+	
+	var izvediPrijavo = function(event) {
+		// pridobi vrednost uporabniskega imena
+		var uporabnik = document.querySelector("#uporabnisko_ime").value;
+		// nastavi "Pozdravljen, uporabnik!"
+		document.getElementById("uporabnik").innerHTML=uporabnik;
+		// skrij pokrivalo
+		// var pokrivalo = document.querySelector(".pokrivalo").style.visibility='hidden';
+		document.querySelector(".pokrivalo").style.display='none';
+	}
+	
+	document.querySelector("#prijavniGumb").addEventListener('click', izvediPrijavo);
+	
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
 		var opomniki = document.querySelectorAll(".opomnik");
