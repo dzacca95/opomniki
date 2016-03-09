@@ -13,6 +13,19 @@ window.addEventListener('load', function() {
 	
 	document.querySelector("#prijavniGumb").addEventListener('click', izvediPrijavo);
 	
+	var dodajOpomnik = function(event) {
+		// pridobi vnešeni vrednosti za naziv in čas trajanja opomnika
+		var naziv = document.querySelector("#naziv_opomnika").value;
+		var cas = document.querySelector("#cas_opomnika").value;
+		// resetira vrednosti vnosnih polj
+		document.getElementById("naziv_opomnika").value = "";
+		document.getElementById("cas_opomnika").value = "";
+		// v HTML element z id-jem opomniki doda sledečo HTML kodo, v katero vstavite vrednosti, ki jih je vnesel uporabnik
+	    document.getElementById("opomniki").innerHTML += "<div class='opomnik'> <div class='naziv_opomnika'>"+naziv+"</div> <div class='cas_opomnika'> Opomnik čez <span>"+cas+"</span> sekund.</div> </div>";
+	}
+	
+	document.querySelector("#dodajGumb").addEventListener('click', dodajOpomnik);
+	
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
 		var opomniki = document.querySelectorAll(".opomnik");
